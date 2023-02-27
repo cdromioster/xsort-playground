@@ -1,0 +1,7 @@
+build/
+builddir/
+makefile
+data_out/
+*.exe
+*o
+*.bak

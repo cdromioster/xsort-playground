@@ -1,0 +1,31 @@
+{
+	"configurations": [
+		{
+			"name": "windows",
+			"includePath": [
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/src",
+				"${workspaceFolder}/unity",
+				"${workspaceFolder}/unity/src",
+				"${workspaceFolder}/test/",
+				"${workspaceFolder}/test/test_runners"
+			],
+			"browse": {
+				"path": [
+					"${workspaceFolder}/**",
+					"${workspaceFolder}/src",
+					"${workspaceFolder}/unity",
+					"${workspaceFolder}/unity/src",
+					"${workspaceFolder}/test/",
+					"${workspaceFolder}/test/test_runners"
+				],
+				"limitSymbolsToIncludedHeaders": true
+			},
+			"cStandard": "c11",
+			"cppStandard": "c++14",
+			"compilerPath": "",
+			"intelliSenseMode": "windows-gcc-x64"
+		}
+	],
+	"version": 4
+}
