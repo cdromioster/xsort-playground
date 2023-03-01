@@ -44,18 +44,18 @@ void xsort(const uint16_t* input, size_t size, uint16_t* output)
 		}
 
 		// reset dictionary before starting iteration
-		if (values_found_flag != 0){
-			//only reset dictionary before first iteration or when some values were found on previous iteration 
-			//this saves CPU cycles if no values were found and dictionary is already empty
+		//if (values_found_flag != 0){
+			// only reset dictionary before first iteration or when some values were found on previous iteration 
+			// this saves CPU cycles if no values were found and dictionary is already empty
 			memset(values_counter, 0, DICTIONARY_SIZE*sizeof(uint16_t));
-			values_found_flag = 0;
-		}
+		//	values_found_flag = 0;
+		//}
 		
 		// lookup for values with curent prefix by iterate through an input array words
 		for (uint16_t index = 0; index < size; index++){
 			if ((HI_BYTE(input[index]) & PREFIX_MASK) == (high_byte << (DICTIONARY_SUBWORD_BIT_COUNT-BITS_IN_BYTE))){
 				// if value with current prefix found then increment dictionary value with index corresponding to subword of found word
-				low_byte = LO_BYTE(input[index]) | (HI_BYTE(input[index]) & SUBWORD_MASK);
+				low_byte = input[index] & (SUBWORD_MASK | 0xFF);
 				values_counter[low_byte] ++;
 				values_found_flag = 1;
 			}

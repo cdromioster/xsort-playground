@@ -36,7 +36,7 @@ With the Performance target in mind only **O(n*log(n))** sorting algoritms are s
 	- Go through input array from cell 0 to 50000, as soon as non zero value is reached, fill the next **value**-amount of output array cells with **input cell number**
 
 ## Performance testing
-
+Following figure shows impelemented algorithm performance with optimal dictionary size of 4096 (to compliy with stack frame size limitation) and with no compiler optimization (-O0)
 ![Performance comparison](./performance_tests.png)
 
 
@@ -53,13 +53,14 @@ With the Performance target in mind only **O(n*log(n))** sorting algoritms are s
 ## How to compile, run, test
 
 
-Compile test and implementation
+### Compile and run unit test for xsort
 
 ```
-make
+make test
 ```
+* Under Windows, depening on configuration it might be required to use "mingw32-make test" instead of "make test"
 
-Expected result
+Expected terminal output:
 ```
 Unity test run 1 of 1
 TEST(ProductionCode, xsortFunction_10RandomElements) PASS
@@ -75,3 +76,16 @@ TEST(ProductionCode, xsortFunction_50000FewUniqueElements) PASS
 8 Tests 0 Failures 0 Ignored
 OK
 ```
+
+
+### Compile and run implementation
+```
+make
+
+xsort_file data_in/sorted_random_50000.txt data_out/sorted_random_50000_sorted.txt
+```
+Expected terminal output:
+```
+Cycles spent, 5287228 
+```
+After execution output file with sorted array will be created under specified path.
